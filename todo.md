@@ -1,17 +1,26 @@
-Krav
---------
+KMOM 02
+===========
 
-[OK] Skapa en applikation anpassad för mobilen i Expo och React Native.
+* Ordna fil-mappstrukturen på stylingen
+* Stylea navigations-elementet
+* Fixa stylingen på knapparna
 
-[OK] Appen ska innehålla en lagerförteckningslista där produkterna listas med namn OCH lagersaldot för produkten.
 
-[OK] Appen ska ha en egen stil och anpassas till ditt valda tema för de produkter du har i ditt lager.
- [OK] Kolla upp typografi-artikeln
 
-[OK] Säkerställ att du har filen dbwebb-conf.json i roten av din lager katalog och att den innehåller länken till din publiserade expo-app och länken till ditt GitHub-repo.
+* Skapa en vy där lagerarbetarna ser alla ordrar redo för att packas, dvs. ordrar med status ny. Från order-vyn kan man ta sig till plocklista vyn.
 
-* Commit:a dina ändringar och lägg till en ny tagg (v1.0.*). Du taggar repot med hjälp av kommandot git tag -a v1.0.0 -m "lager1 done"
+* Plocklista vyn visar alla varor i en order, hur många som ska plockas och vart varan finns.
 
-* Push:a repot till GitHub, inklusive taggarna. Du pushar taggarna i ett separat kommando git push origin --tags.
+* Gör en kontroll om det finns tillräckligt många av varan för att den kan packas.
 
-* Länka till ditt GitHub-repo som en del av din inlämning på Canvas. Länken ska vara på formen: https://github.com/emilfolino/lager-v4.git
+* Om det finns tillräckligt många produkter ska det finnas en möjlighet att byta status för ordern med en knapp. Byt till status Packad.
+
+* När status för ordern ändras måste även lagersaldot för de packade varorna minskas.
+
+* Navigationen ska tydligt visa vilken vy användaren är i.
+
+* Strukturera din style kod, så vi inte längre har styling direkt i komponenterna, men i egna filer.
+
+* Se till att det går att testa din app. Lägg till minst en order med en produkt som går att packa.
+
+Länka till ditt GitHub-repo som en del av din inlämning på Canvas. Länken ska vara på formen: https://github.com/emilfolino/lager-v4.git

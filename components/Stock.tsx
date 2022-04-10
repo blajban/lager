@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Text, View, FlatList, TouchableWithoutFeedback } from 'react-native';
-import config from "../config/config.json";
-import styles from "./styles.tsx"
+import { useEffect } from 'react';
+import { Text, View, FlatList } from 'react-native';
+import styles from "../styles/index"
+
+import productModel from "../models/products";
+
 
 const myItemSeparator = () => {
     return (
@@ -25,27 +27,16 @@ const ItemList = ({products}) => {
     );
 }
 
-function StockList() {
-    const [products, setProducts] = useState([]);
+export default function Stock({products, setProducts}) {
+    useEffect(async () => {
+        setProducts(await productModel.getProducts());
+      }, []);
 
-    useEffect(() => {
-        fetch(`${config.base_url}/products?api_key=${config.api_key}`)
-            .then(response => response.json())
-            .then(result => setProducts(result.data));
-    }, []);
-
-    //const list = products.map((product, index) => <Text style={styles.p} key={index}>{ product.name } - { product.stock }</Text>);
-
-    return (
-        <ItemList products={products} />
-    );
-}
-
-export default function Stock() {
     return (
         <View style={styles.content}>
             <Text style={styles.h2}>Lagerförteckning</Text>
-            <StockList/>
+            <ItemList products={products} />
         </View>
     );
 }
+
