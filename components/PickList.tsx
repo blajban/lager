@@ -1,21 +1,62 @@
 import { View, Text, Button } from "react-native";
-import orderModel from "../models/orders.ts";
+import orderModel from "../models/orders";
+import productModel from "../models/products";
+import styles from "../styles/index";
 
-export default function PickList({ route, navigation }) {
+export default function PickList({ route, navigation, setProducts }) {
     const { order } = route.params;
 
     async function pick() {
+        
+
+        
+        
         await orderModel.pickOrder(order);
-        navigation.navigate("List", { reload: true });
+
+        // Update stock and navigate back
+        setProducts(await productModel.getProducts());
+        navigation.navigate("Ordrar", { reload: true });
+
+        return true;
     }
 
     const orderItemsList = order.order_items.map((item, index) => {
         return <Text
+                style={styles.p}
                 key={index}
                 >
                     {item.name} - {item.amount} - {item.location}
             </Text>;
     });
+
+    const stock = orderModel.orderInStock(order);
+    const missingStockItemsList = stock.items.map((item, index) => {
+        return <Text
+                style={styles.p}
+                key={index}
+                >
+                    {item}
+            </Text>;
+    });
+
+    if (!stock.inStock) {
+        return (
+            <View style={styles.content}>
+                <Text>{order.name}</Text>
+                <Text>{order.address}</Text>
+                <Text>{order.zip} {order.city}</Text>
+    
+                <Text style={styles.h2}>Produkter:</Text>
+    
+                {orderItemsList}
+
+                <Text style={styles.h2}>Saknas i lager:</Text>
+                
+                {missingStockItemsList}
+
+            </View>
+        )
+    }
 
     return (
         <View>
@@ -23,7 +64,7 @@ export default function PickList({ route, navigation }) {
             <Text>{order.address}</Text>
             <Text>{order.zip} {order.city}</Text>
 
-            <Text>Produkter:</Text>
+            <Text style={styles.h2}>Produkter:</Text>
 
             {orderItemsList}
 

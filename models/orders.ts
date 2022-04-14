@@ -1,4 +1,5 @@
 import config from "../config/config.json";
+import products from "./products"
 
 interface OrderItem {
     // TODO: Kolla vilka fält vi ska ha här!
@@ -17,7 +18,7 @@ interface Order {
 }
 
 const orders = {
-    getOrders: async function getOrders() {
+    getOrders: async function getOrders(): Promise<Order[]> {
         const response = await fetch(`${config.base_url}/orders?api_key=${config.api_key}`);
         const result = await response.json();
 
@@ -28,16 +29,30 @@ const orders = {
         // orderrader som finns i ordern
 
         // TODO: Ändra status för ordern till packad
+
+        // TODO: 
+        // if button pressed change order status to 'Packad'
+        // when status changes the stock also need to change
+        // can compare to order
+
+    },
+    orderInStock: function orderInStock(order: Partial<Order>) {
+        const stock = {
+            inStock: true,
+            items: []
+        };
+
+        for (const item of order.order_items) {
+            if (item.amount <= item.stock) {
+                continue
+            }
+
+            stock.inStock = false;
+            stock.items.push(item.name);
+        }
+
+        return stock;
     }
 };
-
-const products = {
-    getProducts: async function getProducts() {
-        const response = await fetch(`${config.base_url}/products?api_key=${config.api_key}`);
-        const result = await response.json();
-        
-        return result.data;
-    }
-}
 
 export default orders;

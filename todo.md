@@ -2,16 +2,17 @@ KMOM 02
 ===========
 
 * Ordna fil-mappstrukturen på stylingen
-* Stylea navigations-elementet
-* Fixa stylingen på knapparna
+* Stylea navigations-elementet och rubrikerna där uppe
+* Fixa stylingen på knapparna - ändra till pressable
+* Fixa alla typer enligt typescript
 
 
 
-* Skapa en vy där lagerarbetarna ser alla ordrar redo för att packas, dvs. ordrar med status ny. Från order-vyn kan man ta sig till plocklista vyn.
+[OK] Skapa en vy där lagerarbetarna ser alla ordrar redo för att packas, dvs. ordrar med status ny. Från order-vyn kan man ta sig till plocklista vyn.
 
-* Plocklista vyn visar alla varor i en order, hur många som ska plockas och vart varan finns.
+[OK] Plocklista vyn visar alla varor i en order, hur många som ska plockas och vart varan finns.
 
-* Gör en kontroll om det finns tillräckligt många av varan för att den kan packas.
+[OK] Gör en kontroll om det finns tillräckligt många av varan för att den kan packas.
 
 * Om det finns tillräckligt många produkter ska det finnas en möjlighet att byta status för ordern med en knapp. Byt till status Packad.
 
