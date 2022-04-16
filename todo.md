@@ -15,6 +15,7 @@ KMOM 02
 [OK] Gör en kontroll om det finns tillräckligt många av varan för att den kan packas.
 
 * Om det finns tillräckligt många produkter ska det finnas en möjlighet att byta status för ordern med en knapp. Byt till status Packad.
+    * BYT STATUS
 
 * När status för ordern ändras måste även lagersaldot för de packade varorna minskas.
 

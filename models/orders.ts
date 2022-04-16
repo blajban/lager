@@ -2,7 +2,9 @@ import config from "../config/config.json";
 import products from "./products"
 
 interface OrderItem {
-    // TODO: Kolla vilka fält vi ska ha här!
+    order_id: number,
+    product_id: number,
+    amount: number
 }
 
 interface Order {
@@ -25,16 +27,30 @@ const orders = {
         return result.data;
     },
     pickOrder: async function pickOrder(order: Partial<Order>) {
-        // TODO: Minska lagersaldo för de
-        // orderrader som finns i ordern
+
+        console.log(order);
 
         // TODO: Ändra status för ordern till packad
 
-        // TODO: 
-        // if button pressed change order status to 'Packad'
-        // when status changes the stock also need to change
-        // can compare to order
 
+        await this.updateStock(order.order_items);
+
+
+    },
+    updateStock: async function updateStock(order_items: OrderItem[]) {
+        for (const item of order_items) {
+            const updated_product = {
+                id: item.product_id,
+                article_number: item.article_number,
+                name: item.name,
+                description: item.description,
+                specifiers: item.specifiers,
+                stock: item.stock - item.amount,
+                location: item.location,
+                price: item.price
+            };
+            products.updateProduct(updated_product);
+        }
     },
     orderInStock: function orderInStock(order: Partial<Order>) {
         const stock = {

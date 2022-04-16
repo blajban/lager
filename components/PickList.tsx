@@ -7,13 +7,8 @@ export default function PickList({ route, navigation, setProducts }) {
     const { order } = route.params;
 
     async function pick() {
-        
-
-        
-        
         await orderModel.pickOrder(order);
 
-        // Update stock and navigate back
         setProducts(await productModel.getProducts());
         navigation.navigate("Ordrar", { reload: true });
 
