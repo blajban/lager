@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { View, Text, Button } from "react-native";
 import orderModel from "../models/orders";
+import { base, typography } from '../styles';
 
 export default function OrderList({ route, navigation }) {
     const { reload } = route.params || false;
@@ -22,19 +23,20 @@ export default function OrderList({ route, navigation }) {
         .filter(order => order.status === "Ny")
         .map((order, index) => {
             return <Button
-                title={order.name}
+                title={order.id + " " + order.name}
                 key={index}
+                color={base.buttonColor}
                 onPress={() => {
                     navigation.navigate('Plocklista', {
                         order: order
                     });
                 }}
             />
+            
         });
 
     return (
         <View>
-            <Text>Ordrar redo att plockas</Text>
             {listOfOrders}
         </View>
     );

@@ -3,7 +3,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppLoading from 'expo-app-loading';
-import { Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -53,10 +52,9 @@ export default function App() {
                         },
                         tabBarActiveTintColor: 'tomato',
                         tabBarInactiveTintColor: 'gray',
-                        header: ({ navigation, route, options }) => {
-                          
-                            return <View style={base.header}><Text style={typography.h1}> {route.name} </Text></View>;
-                        }
+                        contentStyle: base.content,
+                        headerStyle: base.header,
+                        headerTitleStyle: typography.h1
                     })}
                     >
                     <Tab.Screen name="Lager">

@@ -13,6 +13,13 @@ const typography = {
         marginBottom: vars.marginBottomNo / 2,
         fontFamily: vars.fontStack.bold
     },
+    h3: {
+        color: vars.fontColor,
+        fontSize: 16,
+        marginTop: 20,
+        marginBottom: vars.marginBottomNo / 2,
+        fontFamily: vars.fontStack.bold
+    },
     p: {
         color: vars.fontColor,
         fontSize: 16,
@@ -20,6 +27,12 @@ const typography = {
         marginBottom: vars.marginBottomNo,
         fontFamily: vars.fontStack.regular
     },
+    address: {
+        color: vars.fontColor,
+        fontSize: 16,
+        lineHeight: 22.4,
+        fontFamily: vars.fontStack.regular
+    }
 }
 
 export default typography;

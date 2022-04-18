@@ -24,7 +24,9 @@ const base = {
     },
     header: {
         backgroundColor: vars.backgroundCol,
+        height: 80
     },
+    buttonColor: "#2C3E50"
 }
 
 export default base;

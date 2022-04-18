@@ -1,7 +1,12 @@
 import * as vars from "./variables";
 
 const list = {
-    item: {
+    simple_item: {
+        color: '#212121',
+        fontSize: 16,
+        height: 30,
+        fontFamily: vars.fontStack.regular
+    },item: {
         color: '#212121',
         fontSize: 16,
         height: 40,

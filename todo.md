@@ -22,6 +22,8 @@ KMOM 02
 
 [OK] Strukturera din style kod, så vi inte längre har styling direkt i komponenterna, men i egna filer.
 
-* Se till att det går att testa din app. Lägg till minst en order med en produkt som går att packa.
+[OK] Se till att det går att testa din app. Lägg till minst en order med en produkt som går att packa.
 
 Länka till ditt GitHub-repo som en del av din inlämning på Canvas. Länken ska vara på formen: https://github.com/emilfolino/lager-v4.git
+
+https://github.com/blajban/lager
