@@ -1,7 +1,7 @@
 import { View, Text, Button } from "react-native";
 import orderModel from "../models/orders";
 import productModel from "../models/products";
-import styles from "../styles/index";
+import { base, typography } from "../styles/index";
 
 export default function PickList({ route, navigation, setProducts }) {
     const { order } = route.params;
@@ -17,7 +17,7 @@ export default function PickList({ route, navigation, setProducts }) {
 
     const orderItemsList = order.order_items.map((item, index) => {
         return <Text
-                style={styles.p}
+                style={typography.p}
                 key={index}
                 >
                     {item.name} - {item.amount} - {item.location}
@@ -27,7 +27,7 @@ export default function PickList({ route, navigation, setProducts }) {
     const stock = orderModel.orderInStock(order);
     const missingStockItemsList = stock.items.map((item, index) => {
         return <Text
-                style={styles.p}
+                style={typography.p}
                 key={index}
                 >
                     {item}
@@ -36,16 +36,16 @@ export default function PickList({ route, navigation, setProducts }) {
 
     if (!stock.inStock) {
         return (
-            <View style={styles.content}>
+            <View style={base.content}>
                 <Text>{order.name}</Text>
                 <Text>{order.address}</Text>
                 <Text>{order.zip} {order.city}</Text>
     
-                <Text style={styles.h2}>Produkter:</Text>
+                <Text style={typography.h2}>Produkter:</Text>
     
                 {orderItemsList}
 
-                <Text style={styles.h2}>Saknas i lager:</Text>
+                <Text style={typography.h2}>Saknas i lager:</Text>
                 
                 {missingStockItemsList}
 
@@ -59,7 +59,7 @@ export default function PickList({ route, navigation, setProducts }) {
             <Text>{order.address}</Text>
             <Text>{order.zip} {order.city}</Text>
 
-            <Text style={styles.h2}>Produkter:</Text>
+            <Text style={typography.h2}>Produkter:</Text>
 
             {orderItemsList}
 

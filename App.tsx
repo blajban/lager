@@ -1,8 +1,9 @@
 // Expo/React
 import { StatusBar } from 'expo-status-bar';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppLoading from 'expo-app-loading';
+import { Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -13,7 +14,7 @@ import Pick from './components/Pick'
 import Home from './components/Home'
 
 // Style
-import styles from "./styles/index";
+import { base, typography } from "./styles/index";
 
 
 
@@ -42,7 +43,7 @@ export default function App() {
     
     // main view
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={base.container}>
             <NavigationContainer>
                 <Tab.Navigator screenOptions={({ route }) => ({
                         tabBarIcon: ({ focused, color, size }) => {
@@ -52,6 +53,10 @@ export default function App() {
                         },
                         tabBarActiveTintColor: 'tomato',
                         tabBarInactiveTintColor: 'gray',
+                        header: ({ navigation, route, options }) => {
+                          
+                            return <View style={base.header}><Text style={typography.h1}> {route.name} </Text></View>;
+                        }
                     })}
                     >
                     <Tab.Screen name="Lager">

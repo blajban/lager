@@ -1,6 +1,4 @@
-import { ListItem } from "react-native-elements";
 import config from "../config/config.json";
-import orderModel from "./orders";
 
 interface Product {
         id: number,

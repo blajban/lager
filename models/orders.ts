@@ -1,5 +1,5 @@
 import config from "../config/config.json";
-import products from "./products"
+import productModel from "./products"
 
 interface OrderItem {
     order_id: number,
@@ -27,15 +27,26 @@ const orders = {
         return result.data;
     },
     pickOrder: async function pickOrder(order: Partial<Order>) {
-
-        console.log(order);
-
-        // TODO: Ändra status för ordern till packad
-
+        await this.changeOrderStatus(order, 200)
 
         await this.updateStock(order.order_items);
 
+    },
+    changeOrderStatus: async function changeOrderStatus(order: Partial<Order>, status: number) {
+        order.api_key = config.api_key;
+        order.status_id = status;
+        await fetch(
+            `${config.base_url}/orders`, {
+                body: JSON.stringify(order),
+                headers: {
+                    'content-type': 'application/json'
+                },
+                method: 'PUT'
+            }
+        );
 
+        console.log("updating order status!");
+        
     },
     updateStock: async function updateStock(order_items: OrderItem[]) {
         for (const item of order_items) {
@@ -49,7 +60,7 @@ const orders = {
                 location: item.location,
                 price: item.price
             };
-            products.updateProduct(updated_product);
+            productModel.updateProduct(updated_product);
         }
     },
     orderInStock: function orderInStock(order: Partial<Order>) {
