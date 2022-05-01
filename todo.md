@@ -1,29 +1,35 @@
-KMOM 02
+KMOM 03
 ===========
 
-* Ordna fil-mappstrukturen på stylingen
-* Stylea navigations-elementet och rubrikerna där uppe
-* Fixa stylingen på knapparna - ändra till pressable
 * Fixa alla typer enligt typescript
 
+* Lägg till label-css
+* Fixa form.input-css
+* Fixa Delivery-interface
 
 
-[OK] Skapa en vy där lagerarbetarna ser alla ordrar redo för att packas, dvs. ordrar med status ny. Från order-vyn kan man ta sig till plocklista vyn.
+Krav
+-----
 
-[OK] Plocklista vyn visar alla varor i en order, hur många som ska plockas och vart varan finns.
+* Lista alla tidigare inleveranser. Om det inte finns inleveranser, visa upp ett meddelande om detta.
 
-[OK] Gör en kontroll om det finns tillräckligt många av varan för att den kan packas.
+* Gör en knapp för ‘Ny inleverans’ i list-vyn, denna ska ta användaren till ett formulär.
 
-[OK] Om det finns tillräckligt många produkter ska det finnas en möjlighet att byta status för ordern med en knapp. Byt till status Packad.
+* Använd dina kunskaper i att göra ett lättanvänt formulär där man kan göra inleverans av en produkt.
 
-[OK] När status för ordern ändras måste även lagersaldot för de packade varorna minskas.
+* Formuläret ska innehålla alla attribut för en inleverans förutom Leverans ID (id) dvs.:
+    * Produkt (product_id)
+    * Antal (amount)
+    * Leveransdatum (delivery_date)
+    * Kommentar (comment)
 
-[OK] Navigationen ska tydligt visa vilken vy användaren är i.
+* Använd en Picker-komponent för att välja produkten som har levererats.
 
-[OK] Strukturera din style kod, så vi inte längre har styling direkt i komponenterna, men i egna filer.
+* Använd en DatePicker-komponent för att välja leveransdatum.
 
-[OK] Se till att det går att testa din app. Lägg till minst en order med en produkt som går att packa.
+* När formuläret skickas ska det skapas en inleverans i API:t.
 
-Länka till ditt GitHub-repo som en del av din inlämning på Canvas. Länken ska vara på formen: https://github.com/emilfolino/lager-v4.git
+* Lagersaldot för produkten ska ökas med den levererade mängden.
 
-https://github.com/blajban/lager
+* Länka till ditt GitHub-repo som en del av din inlämning på Canvas. Länken ska vara på formen: https://github.com/emilfolino/lager-v4.git
+

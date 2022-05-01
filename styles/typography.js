@@ -15,22 +15,28 @@ const typography = {
     },
     h3: {
         color: vars.fontColor,
-        fontSize: 16,
+        fontSize: vars.standardFontSize,
         marginTop: 20,
         marginBottom: vars.marginBottomNo / 2,
         fontFamily: vars.fontStack.bold
     },
     p: {
         color: vars.fontColor,
-        fontSize: 16,
-        lineHeight: 22.4,
+        fontSize: vars.standardFontSize,
+        lineHeight: vars.standardLineHeight,
         marginBottom: vars.marginBottomNo,
         fontFamily: vars.fontStack.regular
     },
+    label: {
+        color: vars.fontColor,
+        fontSize: vars.standardFontSize,
+        lineHeight: vars.standardLineHeight,
+        fontFamily: vars.fontStack.bold
+    },
     address: {
         color: vars.fontColor,
-        fontSize: 16,
-        lineHeight: 22.4,
+        fontSize: vars.standardFontSize,
+        lineHeight: vars.standardLineHeight,
         fontFamily: vars.fontStack.regular
     }
 }

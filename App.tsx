@@ -11,6 +11,7 @@ import { Ionicons } from '@expo/vector-icons';
 // Components
 import Pick from './components/Pick'
 import Home from './components/Home'
+import Deliveries from './components/Deliveries';
 
 // Style
 import { base, typography } from "./styles/index";
@@ -63,6 +64,7 @@ export default function App() {
                     <Tab.Screen name="Plock">
                             {() => <Pick setProducts={setProducts} />}
                     </Tab.Screen>
+                    <Tab.Screen name="Inleveranser" component={Deliveries}/>
                 </Tab.Navigator>
             </NavigationContainer>
 
