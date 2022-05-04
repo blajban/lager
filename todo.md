@@ -1,35 +1,20 @@
-KMOM 03
+KMOM 04
 ===========
 
 * Fixa alla typer enligt typescript
 
-* Lägg till label-css
-* Fixa form.input-css
-* Fixa addDelivery-funktionen
-
-
 Krav
------
+------
 
-[OK] Lista alla tidigare inleveranser. Om det inte finns inleveranser, visa upp ett meddelande om detta.
+* Skapa ett formulär för att registrera en användare i Lager appen.
 
-[OK] Gör en knapp för ‘Ny inleverans’ i list-vyn, denna ska ta användaren till ett formulär.
+* Skapa ett formulär för att logga in i Lager appen med en registrerad användare.
 
-[OK] Använd dina kunskaper i att göra ett lättanvänt formulär där man kan göra inleverans av en produkt.
+* Bakom de skyddade delarna ska faktura vyerna ligga.
 
-[OK] Formuläret ska innehålla alla attribut för en inleverans förutom Leverans ID (id) dvs.:
-    * Produkt (product_id)
-    * Antal (amount)
-    * Leveransdatum (delivery_date)
-    * Kommentar (comment)
+* Skapa ett formulär för att göra om en order till en faktura. Ändra orderns status till ‘fakturerad’ enligt API:t.
 
-[OK] Använd en Picker-komponent för att välja produkten som har levererats.
+* Det ska inte gå att fakturera en order två gånger.
 
-[OK] Använd en DatePicker-komponent för att välja leveransdatum.
-
-[OK] När formuläret skickas ska det skapas en inleverans i API:t.
-
-[OK] Lagersaldot för produkten ska ökas med den levererade mängden.
-
-* Länka till ditt GitHub-repo som en del av din inlämning på Canvas. Länken ska vara på formen: https://github.com/emilfolino/lager-v4.git
+* Skapa en tabell med information om befintliga fakturor.
 

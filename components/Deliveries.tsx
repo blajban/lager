@@ -15,8 +15,6 @@ export default function Deliveries(props) {
             headerTitleStyle: typography.h2
         })}>
             <Stack.Screen name="Hantera inleveranser" component={DeliveriesList} />
-            {/*<Stack.Screen name="Ny inleverans" component={DeliveryForm} />*/}
-
             <Stack.Screen name="Ny inleverans">
                 {(screenProps) => <DeliveryForm {...screenProps} setProducts={props.setProducts} />}
             </Stack.Screen>

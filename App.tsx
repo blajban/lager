@@ -1,6 +1,6 @@
 // Expo/React
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
@@ -12,9 +12,13 @@ import { Ionicons } from '@expo/vector-icons';
 import Pick from './components/Pick'
 import Home from './components/Home'
 import Deliveries from './components/Deliveries';
+import Auth from "./components/auth/Auth";
 
 // Style
 import { base, typography } from "./styles/index";
+
+// Models
+import authModel from "./models/auth";
 
 
 
@@ -29,6 +33,11 @@ const routeIcons = {
 export default function App() {
     // used to lift state up
     const [products, setProducts] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState<Boolean>(false);
+
+    useEffect(async () => {
+        setIsLoggedIn(await authModel.loggedIn());
+    }, []);
 
     // load fonts, if fonts not loaded return apploading
     let [fontsLoaded] = useFonts({
@@ -67,7 +76,12 @@ export default function App() {
                     <Tab.Screen name="Inleveranser">
                             {() => <Deliveries setProducts={setProducts} />}
                     </Tab.Screen>
-                    {/*<Tab.Screen name="Inleveranser" component={Deliveries}/>*/}
+                    {isLoggedIn ?
+                        <Tab.Screen name="Faktura" component={Invoices}/> :
+                        <Tab.Screen name="Logga in">
+                                {() => <Auth setIsLoggedIn={setIsLoggedIn} />}
+                        </Tab.Screen>
+                    }
                 </Tab.Navigator>
             </NavigationContainer>
 
