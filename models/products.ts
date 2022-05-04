@@ -1,16 +1,6 @@
 import config from "../config/config.json";
 
-interface Product {
-        id: number,
-        article_number: string,
-        name: string,
-        description: string,
-        specifiers: object,
-        stock: number,
-        location: string,
-        price: number
-}
-
+import Product from "../interfaces/product"
 
 const products = {
     getProducts: async function getProducts(): Promise<Product[]> {
@@ -30,8 +20,6 @@ const products = {
                 method: 'PUT'
             }
         );
-
-        console.log("updating product!");
     }
 
 }

@@ -6,10 +6,18 @@ const list = {
         fontSize: 16,
         height: 30,
         fontFamily: vars.fontStack.regular
-    },item: {
+    },
+    item: {
         color: '#212121',
         fontSize: 16,
         height: 40,
+        paddingTop: 10,
+        fontFamily: vars.fontStack.regular
+    },
+    bigItem: {
+        color: '#212121',
+        fontSize: 16,
+        height: 80,
         paddingTop: 10,
         fontFamily: vars.fontStack.regular
     },
