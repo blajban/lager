@@ -2,6 +2,8 @@ KMOM 04
 ===========
 
 * Fixa alla typer enligt typescript
+* Fixa ikoner i botten-navigeringen
+* Logga ut-knapp (delete i storage - kolla i övningen)
 
 Krav
 ------

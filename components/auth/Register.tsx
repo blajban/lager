@@ -1,15 +1,16 @@
 import Auth from "../../interfaces/auth";
 import { useState } from "react";
-import authModel from "../../models/auth";
+import AuthModel from "../../models/auth";
 import AuthFields from "./AuthFields";
 
-export default function Login({ navigation, setIsLoggedIn }) {
+ 
+export default function Register({ navigation }) {
     const [auth, setAuth] = useState<Partial<Auth>>({});
-
-    async function doLogin() {
+    
+    async function doRegister() {
         if (auth.email && auth.password) {
-            const result = await authModel.login(auth.email, auth.password);
-            setIsLoggedIn(true);
+            const result = await AuthModel.register(auth.email, auth.password);
+            navigation.navigate("Login");
         }
     }
 
@@ -17,8 +18,8 @@ export default function Login({ navigation, setIsLoggedIn }) {
         <AuthFields 
             auth={auth}
             setAuth={setAuth}
-            submit={doLogin}
-            title={"Logga in"}
+            submit={doRegister}
+            title={"Registrera"}
             navigation={navigation}
         />
     )
