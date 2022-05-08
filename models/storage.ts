@@ -24,6 +24,9 @@ const storage = {
         } catch (e) {
             // Error
         }
+    },
+    deleteToken: async function deleteToken() {
+        await AsyncStorage.removeItem('@token');
     }
 };
 

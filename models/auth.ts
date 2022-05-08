@@ -47,6 +47,9 @@ const auth = {
         await storage.storeToken(result.data.token);
 
         return result.data.message;
+    },
+    logout: async function logout() {
+        await storage.deleteToken();
     }
 };
 
