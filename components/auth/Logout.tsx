@@ -12,6 +12,7 @@ export default function Logout({ setIsLoggedIn }) {
     return (
         <Button
             title="Logga ut"
+            color={base.buttonColor}
             onPress={() => {
                 doLogout();
             }}

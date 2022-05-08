@@ -31,6 +31,7 @@ export default function AuthFields({ auth, setAuth, title, submit, navigation })
 
         <Button 
             title={title}
+            color={base.buttonColor}
             onPress={() => {
                 submit();
             }}
@@ -39,6 +40,7 @@ export default function AuthFields({ auth, setAuth, title, submit, navigation })
         {title == "Logga in" && 
             <Button 
                 title="Registrera"
+                color={base.buttonColor}
                 onPress={() => {
                     navigation.navigate("Register");
                 }}

@@ -1,7 +1,10 @@
 import { Text, View } from "react-native";
-import Logout from "./auth/Logout";
+import { useState, useEffect } from "react";
+import Logout from "../auth/Logout";
 import { DataTable } from "react-native-paper";
-import { base } from "../styles/index";
+import { base } from "../../styles/index";
+
+import InvoiceModel from "../../models/invoices";
 
 export default function Invoices (props) {
 
@@ -20,6 +23,19 @@ export default function Invoices (props) {
             </DataTable.Row>
         );
     });
+
+    const [allInvoices, setAllInvoices] = useState([]);
+
+    async function realoadInvoices() {
+        setAllInvoices(await InvoiceModel.getInvoices());
+    }
+
+    useEffect(() => {
+        realoadInvoices();
+    }, []);
+
+
+    console.log(allInvoices);
 
 
     return (

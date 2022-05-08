@@ -122,6 +122,7 @@ export default function DeliveryForm({ navigation, setProducts }) {
 
             <Button
                 title="Gör inleverans"
+                color={base.buttonColor}
                 onPress={() => {
                     addDelivery();
                 }}

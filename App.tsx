@@ -13,7 +13,7 @@ import Pick from './components/Pick'
 import Home from './components/Home'
 import Deliveries from './components/Deliveries';
 import Auth from "./components/auth/Auth";
-import Invoices from './components/Invoices';
+import Invoices from './components/invoices/Invoices';
 
 // Style
 import { base, typography } from "./styles/index";

@@ -52,6 +52,7 @@ export default function DeliveriesList({ route, navigation }) {
         <View style={base.content}>
             <Button
                 title="Skapa ny inleverans"
+                color={base.buttonColor}
                 onPress={() => {
                     navigation.navigate('Ny inleverans');
                 }}
