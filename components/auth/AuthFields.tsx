@@ -34,6 +34,7 @@ export default function AuthFields({ auth, setAuth, title, submit, navigation })
             color={base.buttonColor}
             onPress={() => {
                 submit();
+                setAuth();
             }}
         />
 

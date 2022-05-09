@@ -16,9 +16,10 @@ Krav
 
 [OK] Bakom de skyddade delarna ska faktura vyerna ligga.
 
-* Skapa ett formulär för att göra om en order till en faktura. Ändra orderns status till ‘fakturerad’ enligt API:t.
+[OK] Skapa ett formulär för att göra om en order till en faktura. Ändra orderns status till ‘fakturerad’ enligt API:t.
 
 * Det ska inte gå att fakturera en order två gånger.
+    * Använd filter på map-funktionen i dropdown?
 
 * Skapa en tabell med information om befintliga fakturor.
 
