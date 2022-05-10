@@ -22,4 +22,5 @@ Krav
     * Använd filter på map-funktionen i dropdown?
 
 * Skapa en tabell med information om befintliga fakturor.
+    * stylea tabell
 

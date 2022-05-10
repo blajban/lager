@@ -92,12 +92,10 @@ export default function InvoiceForm({ navigation, setAllInvoices }) {
 
         await orderModel.changeOrderStatus(currentOrder, 600);
 
-        await invoiceModel.addInvoice(invoice);
+        await invoiceModel.addInvoice(updatedInvoice);
 
         setAllInvoices(await invoiceModel.getInvoices());
 
-        console.log(currentOrder);
-        console.log(updatedInvoice);
         navigation.navigate("Fakturor", { reload: true });
     }
 

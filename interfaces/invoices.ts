@@ -2,6 +2,15 @@ export default interface Invoice {
     id: number,
     order_id: number,
     total_price: number,
-    creation_date: Date,
-    due_date: Date,
+    creation_date: string,
+    due_date: string,
+    address: string,
+    city: string,
+    country: string,
+    name: string,
+    zip: number,
 };
+
+
+    
+    
