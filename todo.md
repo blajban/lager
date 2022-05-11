@@ -1,10 +1,6 @@
 KMOM 04
 ===========
 
-* Fixa alla typer enligt typescript
-* Fixa ikoner i botten-navigeringen
-* Stylea tabell!
-
 Krav
 ------
 
@@ -18,9 +14,7 @@ Krav
 
 [OK] Skapa ett formulär för att göra om en order till en faktura. Ändra orderns status till ‘fakturerad’ enligt API:t.
 
-* Det ska inte gå att fakturera en order två gånger.
-    * Använd filter på map-funktionen i dropdown?
+[OK] Det ska inte gå att fakturera en order två gånger.
 
-* Skapa en tabell med information om befintliga fakturor.
-    * stylea tabell
+[OK] Skapa en tabell med information om befintliga fakturor.
 

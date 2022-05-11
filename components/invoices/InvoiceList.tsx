@@ -1,10 +1,12 @@
-import { View, Button, Text } from 'react-native';
+import { View, Button, Text, ScrollView } from 'react-native';
 import { useEffect } from 'react';
 import { base, typography } from "../../styles/index";
 import InvoiceModel from "../../models/invoices";
 import Invoice from "../../interfaces/invoices";
 import { DataTable } from "react-native-paper";
 import Logout from "../auth/Logout";
+
+import { table as Table } from "../../styles/index" ;
 
 
 
@@ -18,31 +20,24 @@ export default function InvoiceList({ route, navigation, allInvoices, setAllInvo
 
     async function reloadInvoices() {
         setAllInvoices(await InvoiceModel.getInvoices());
-
     }
-
-    
 
     useEffect(() => {
         reloadInvoices();
     }, []);
 
-
     const table = allInvoices.map((invoice: Invoice) => {
         return (
             <DataTable.Row key={invoice.id}>
-                <DataTable.Cell numeric>{invoice.name}</DataTable.Cell>
-                <DataTable.Cell numeric>{invoice.order_id}</DataTable.Cell>
-                <DataTable.Cell>{invoice.creation_date}</DataTable.Cell>
-                <DataTable.Cell> {invoice.due_date}</DataTable.Cell>
+                <DataTable.Cell textStyle={Table.tableText}>{invoice.name}</DataTable.Cell>
+                <DataTable.Cell textStyle={Table.tableText}>{invoice.due_date}</DataTable.Cell>
+                <DataTable.Cell numeric textStyle={Table.tableText}>{invoice.total_price}</DataTable.Cell>
             </DataTable.Row>
         );
     });
 
-
-
     return (
-        <View style={base.content}>
+        <ScrollView style={base.content}>
             <Button
                 title="Skapa faktura"
                 color={base.buttonColor}
@@ -53,10 +48,9 @@ export default function InvoiceList({ route, navigation, allInvoices, setAllInvo
             <Text style={typography.h3}>Fakturor</Text>
             <DataTable>
                 <DataTable.Header>
-                    <DataTable.Title>Kund</DataTable.Title>
-                    <DataTable.Title numeric>Ordernummer</DataTable.Title>
-                    <DataTable.Title>Skapad</DataTable.Title>
-                    <DataTable.Title>Förfaller</DataTable.Title>
+                    <DataTable.Title textStyle={Table.headText}>Kund</DataTable.Title>
+                    <DataTable.Title textStyle={Table.headText}>Förfaller</DataTable.Title>
+                    <DataTable.Title numeric textStyle={Table.headText}>Pris</DataTable.Title>
                 </DataTable.Header>
                 {table}
             </DataTable>
@@ -64,7 +58,7 @@ export default function InvoiceList({ route, navigation, allInvoices, setAllInvo
             <Logout
                 setIsLoggedIn={setIsLoggedIn}
             />
-        </View>
+        </ScrollView>
     );
 };
 

@@ -29,7 +29,11 @@ const Tab = createBottomTabNavigator();
 const routeIcons = {
     "Lager": "home",
     "Plock": "list",
-  };
+    "Inleveranser": "file-tray",
+    "Faktura": "logo-bitcoin",
+    "Logga in": "lock-closed" 
+};
+
 
 export default function App() {
     // used to lift state up
