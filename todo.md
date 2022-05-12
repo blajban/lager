@@ -1,20 +1,14 @@
-KMOM 04
+KMOM 05
 ===========
 
 Krav
 ------
 
-[OK] Skapa ett formulär för att registrera en användare i Lager appen.
+* Skapa en vy i din app med de ordrar som är redo att skickas. Dvs. ordrar med status Packad (200).
 
-[OK] Skapa ett formulär för att logga in i Lager appen med en registrerad användare.
+* När man klickar in på ordern får man al information om ordern och en karta där paketet ska levereras.
 
-[OK] Logga ut-knapp
+* Använd GPS för att visa nuvarande position på kartan.
 
-[OK] Bakom de skyddade delarna ska faktura vyerna ligga.
-
-[OK] Skapa ett formulär för att göra om en order till en faktura. Ändra orderns status till ‘fakturerad’ enligt API:t.
-
-[OK] Det ska inte gå att fakturera en order två gånger.
-
-[OK] Skapa en tabell med information om befintliga fakturor.
+* Gör det enkelt att testa din app. Ha minst en order med status Packad, som har en adress som fungerar.
 

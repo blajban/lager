@@ -14,6 +14,7 @@ import Home from './components/Home'
 import Deliveries from './components/Deliveries';
 import Auth from "./components/auth/Auth";
 import Invoices from './components/invoices/Invoices';
+import Ship from './components/ship/Ship';
 
 // Style
 import { base, typography } from "./styles/index";
@@ -31,7 +32,8 @@ const routeIcons = {
     "Plock": "list",
     "Inleveranser": "file-tray",
     "Faktura": "logo-bitcoin",
-    "Logga in": "lock-closed" 
+    "Logga in": "lock-closed",
+    "Ordrar": "map"
 };
 
 
@@ -81,6 +83,7 @@ export default function App() {
                     <Tab.Screen name="Inleveranser">
                             {() => <Deliveries setProducts={setProducts} />}
                     </Tab.Screen>
+                    <Tab.Screen name="Ordrar" component={Ship} />
                     {isLoggedIn ?
                         <Tab.Screen name="Faktura">
                                 {() => <Invoices setIsLoggedIn={setIsLoggedIn} />}
