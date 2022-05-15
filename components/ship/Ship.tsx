@@ -9,12 +9,12 @@ const Stack = createNativeStackNavigator();
 export default function Ship() {
 
     return (
-        <Stack.Navigator initialRouteName="List" screenOptions={({ route }) => ({
+        <Stack.Navigator initialRouteName="Redo att skickas" screenOptions={({ route }) => ({
             headerStyle: base.header,
             headerTitleStyle: typography.h2
         })}>
-            <Stack.Screen name="List" component={ShipList} />
-            <Stack.Screen name="Order" component={ShipOrder} />
+            <Stack.Screen name="Redo att skickas" component={ShipList} />
+            <Stack.Screen name="Skicka" component={ShipOrder} />
         </Stack.Navigator>
     );
 };

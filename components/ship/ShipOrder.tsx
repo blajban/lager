@@ -4,8 +4,50 @@ import { typography } from "../../styles/index";
 import MapView from "react-native-maps";
 import { Marker } from "react-native-maps";
 
+import getCoordinates from "../../models/nominatim";
+import { useEffect, useState } from "react";
+
+import * as Location from "expo-location";
+
 export default function ShipOrder({ route }) {
-    //const { order } = route.params;
+    const { order } = route.params;
+
+    const [marker, setMarker] = useState(null);
+    const [locationMarker, setLocationMarker] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    useEffect(() => {
+        (async () => {
+            const result = await getCoordinates(`${order.address},${order.city}`);
+            console.log(result);
+
+            setMarker(<Marker
+                coordinate={{latitude: parseFloat(result[0].lat), longitude: parseFloat(result[0].lon)}}
+                title={result[0].display_name}
+                />);
+        })();
+    }, [])
+
+    useEffect(() => {
+        (async () => {
+            const {status} = await Location.requestForegroundPermissionsAsync();
+            if (status !== "granted") {
+                setErrorMessage("Permission to access location was denied");
+                console.log(errorMessage);
+                return;
+            }
+
+            const currentLocation = await Location.getCurrentPositionAsync({});
+            setLocationMarker(<Marker
+                coordinate={{latitude: currentLocation.coords.latitude,
+                longitude: currentLocation.coords.longitude}}
+                title={"Min plats"}
+                pinColor="blue"
+                />);
+        })();
+    }, [])
+
+    
 
     return (
         <View style={styles.container}>
@@ -20,10 +62,8 @@ export default function ShipOrder({ route }) {
                     longitudeDelta: 0.1
                 }}>
 
-                <Marker
-                    coordinate={{latitude: 56.17, longitude: 15.59}}
-                    title="En markör"
-                />
+                {marker}
+                {locationMarker}
             </MapView>
         </View>
     );

@@ -1,6 +1,8 @@
 KMOM 05
 ===========
 
+* Lägg till några packade ordrar med adresser via postman
+
 Krav
 ------
 
