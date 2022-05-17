@@ -19,7 +19,6 @@ export default function ShipOrder({ route }) {
     useEffect(() => {
         (async () => {
             const result = await getCoordinates(`${order.address},${order.city}`);
-            console.log(result);
 
             setMarker(<Marker
                 coordinate={{latitude: parseFloat(result[0].lat), longitude: parseFloat(result[0].lon)}}

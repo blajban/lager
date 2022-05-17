@@ -2,14 +2,8 @@ import { View, Button, FlatList, Text } from 'react-native';
 import { useState, useEffect } from 'react';
 import { base, list, typography } from "../styles/index";
 import deliveryModel from "../models/deliveries";
+import ItemSeparator from './utility/ItemSeparator';
 
-const myItemSeparator = () => {
-    return (
-      <View
-       style={list.itemSeparator}
-      />
-    );
-};
 
 
 const ListDeliveries = ({deliveries}) => {
@@ -26,7 +20,7 @@ const ListDeliveries = ({deliveries}) => {
                 <Text style={list.bigItem}>ID: {item.id}, Produkt-ID: {item.product_id}, Namn: {item.product_name}, Antal: {item.amount}, Datum: {item.delivery_date}, Kommentar: {item.comment}</Text>
             )}
             keyExtractor={(item) => item.id}
-            ItemSeparatorComponent={myItemSeparator}
+            ItemSeparatorComponent={ItemSeparator}
         />
     );
 }

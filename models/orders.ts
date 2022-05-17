@@ -1,24 +1,7 @@
 import config from "../config/config.json";
 import productModel from "./products"
+import Order from "../interfaces/orders";
 
-interface OrderItem {
-    order_id: number,
-    product_id: number,
-    amount: number
-}
-
-interface Order {
-    id: number,
-    name: string,
-    address: string,
-    zip: number,
-    city: string,
-    country: string,
-    status: string,
-    status_id: number,
-    order_items: Array<OrderItem>,
-    api_key: string
-}
 
 const orders = {
     getOrders: async function getOrders(): Promise<Order[]> {

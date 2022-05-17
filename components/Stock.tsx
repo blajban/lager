@@ -1,17 +1,10 @@
 import { useEffect } from 'react';
 import { Text, View, FlatList } from 'react-native';
 import { base, typography, list } from "../styles/index";
+import ItemSeparator from './utility/ItemSeparator';
 
 import productModel from "../models/products";
 
-
-const myItemSeparator = () => {
-    return (
-      <View
-       style={list.itemSeparator}
-      />
-    );
-};
 
 
 const ItemList = ({products}) => {
@@ -22,7 +15,7 @@ const ItemList = ({products}) => {
                 <Text style={list.item}>{item.name} - {item.stock}</Text>
             )}
             keyExtractor={(item) => item.name}
-            ItemSeparatorComponent={myItemSeparator}
+            ItemSeparatorComponent={ItemSeparator}
         />
     );
 }
