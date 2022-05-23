@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
-import { typography } from "../../styles/index";
+import { typography, base } from "../../styles/index";
 
 import MapView from "react-native-maps";
 import { Marker } from "react-native-maps";
@@ -19,10 +19,10 @@ export default function ShipOrder({ route }) {
     useEffect(() => {
         (async () => {
             const result = await getCoordinates(`${order.address},${order.city}`);
-
+            console.log(order);
             setMarker(<Marker
                 coordinate={{latitude: parseFloat(result[0].lat), longitude: parseFloat(result[0].lon)}}
-                title={result[0].display_name}
+                title={order.name}
                 />);
         })();
     }, [])
@@ -50,8 +50,6 @@ export default function ShipOrder({ route }) {
 
     return (
         <View style={styles.container}>
-            <Text style={typography.h2}>Här ska jag visa info om order och karta</Text>
-
             <MapView
                 style={styles.map}
                 initialRegion={{
@@ -63,8 +61,15 @@ export default function ShipOrder({ route }) {
 
                 {marker}
                 {locationMarker}
+                
             </MapView>
+            <View style={base.box}>
+                <Text style={typography.address}>{order.name}</Text>
+                <Text style={typography.address}>{order.address}</Text>
+                <Text style={typography.address}>{order.zip} {order.city}</Text>
+            </View>
         </View>
+
     );
 };
 
@@ -72,7 +77,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "flex-end",
-        alignItems: "center"
+
     },
     map: {
         ...StyleSheet.absoluteFillObject,

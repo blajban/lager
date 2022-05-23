@@ -18,6 +18,10 @@ const base = {
         padding: 14,
         marginBottom: vars.marginBottomNo,
     },
+    box: {
+        backgroundColor: vars.contentBackgroundCol,
+        padding: 14,
+    },
     fullwidthImg: {
         width: '100%',
         marginBottom: vars.marginBottomNo,

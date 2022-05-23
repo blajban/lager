@@ -1,9 +1,8 @@
-import { View, Text, Button } from "react-native";
+import { View, Button } from "react-native";
 import { useState, useEffect } from "react";
 import { base } from "../../styles";
 import Order from "../../interfaces/orders";
 import orderModel from "../../models/orders";
-import ItemSeparator from "../utility/ItemSeparator";
 
 export default function ShipList({ route, navigation }) {
     const { reload } = route.params || false;
@@ -24,7 +23,7 @@ export default function ShipList({ route, navigation }) {
     const listOfOrders = allOrders
         .filter(order => order.status_id === 200)
         .map((order, index) => {
-            return <View><Button
+            return <Button
                 title={order.id + " " + order.name}
                 key={index}
                 color={base.buttonColor}
@@ -34,8 +33,6 @@ export default function ShipList({ route, navigation }) {
                     });
                 }}
             />
-            <ItemSeparator />
-            </View>
         });
 
     return (
