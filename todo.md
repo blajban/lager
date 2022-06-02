@@ -1,21 +1,21 @@
-KMOM 05
-===========
+KMOM06
+==========
 
-* Kolla videon - ska ordern skickas?
-* Streck från nuvarande position till leveransställe?
+
 
 Krav
-------
+--------
 
-[OK] Skapa en vy i din app med de ordrar som är redo att skickas. Dvs. ordrar med status Packad (200).
+[OK] Använd meddelanden i din app för Login och Registrera delarna, 
 
-[OK] När man klickar in på ordern får man al information om ordern och en karta där paketet ska levereras.
+[OK] samt för validering i Delivery formuläret. (Validering är att se till att den data som fylls i uppfyller de krav vi som utvecklare ställer på den.)
 
-[OK] Använd GPS för att visa nuvarande position på kartan.
+* Beskriv som en del av din inlämning i Canvas tre (3) enkla use-cases.
 
-[OK] Gör det enkelt att testa din app. Ha minst en order med status Packad, som har en adress som fungerar.
+    * I appen ska det finnas en lista över fakturor med rubrik 'Alla fakturor'. Listan ska innehåll kund, förfallodatum och pris.
+    * På fakturasidan ska det vara möjligt att logga ut genom att trycka på en knapp med rubriken 'Logga ut'.
+    * På fakturasidan ska det vara möjligt att gå vidare till skapa faktura-sidan genom en knapp med rubriken 'Skapa faktura'. (ÄNDRA DEN HÄR TILL ATT FAKTISKT TESTA SKAPA FAKTURA-SIDAN??)
 
+* Skriv sedan tester med hjälp av Jest och React Native Testing Library för dina tre use-cases.
 
-    
-
-
+* Se till att kommandot npm test fungerar och går igenom för dina tester.

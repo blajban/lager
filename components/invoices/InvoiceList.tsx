@@ -45,7 +45,7 @@ export default function InvoiceList({ route, navigation, allInvoices, setAllInvo
                     navigation.navigate('Skapa faktura');
                 }}
             />
-            <Text style={typography.h3}>Fakturor</Text>
+            <Text style={typography.h3}>Alla fakturor</Text>
             <DataTable>
                 <DataTable.Header>
                     <DataTable.Title textStyle={Table.headText}>Kund</DataTable.Title>
