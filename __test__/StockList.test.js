@@ -11,7 +11,7 @@ const products = [
  * I Lagerförteckningen ska det finnas en lista med produkter. 
  * Listan ska innehålla produktens namn och lagersaldo.
  */
-test("List should contain three items", async () => {
+test("List should contain correct items", async () => {
     const { getByText } = render(<StockList products={products} />);
 
     const shampoo = await getByText('Shampoo', { exact: false });

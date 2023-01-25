@@ -4,9 +4,11 @@ import { base } from "../../styles";
 import Order from "../../interfaces/orders";
 import orderModel from "../../models/orders";
 
+import React from "react";
+
 export default function ShipList({ route, navigation }) {
     const { reload } = route.params || false;
-    const [allOrders, setAllOrders] = useState<Order[]>([]);
+    const [allOrders, setAllOrders] = React.useState<Order[]>([]);
 
     if (reload) {
         reloadOrders();
@@ -37,7 +39,7 @@ export default function ShipList({ route, navigation }) {
 
     return (
         <View style={base.content}>
-                {listOfOrders}
+            {listOfOrders}
         </View>
     );
 };

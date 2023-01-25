@@ -18,4 +18,6 @@ Krav
 
 * Skriv sedan tester med hjälp av Jest och React Native Testing Library för dina tre use-cases.
 
+    * Håller på och fixar så att jag kan mocka asyncstorage enligt detta: https://react-native-async-storage.github.io/async-storage/docs/advanced/jest/
+
 * Se till att kommandot npm test fungerar och går igenom för dina tester.
